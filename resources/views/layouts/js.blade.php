@@ -44,5 +44,17 @@
     });
 </script>  --}}
  <script src="{{ asset('assets/sistema/modales.js') }}"></script>
+ <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+ <script>
+    $(document).ready(function() {
+        $('.select2').select2();
 
+        // Asegurarse de que la opción "Selecciona una opción" esté deshabilitada y seleccionada por defecto
+        $('.select2').each(function() {
+            if (!$(this).val()) {
+                $(this).val('').trigger('change');
+            }
+        });
+    });
+</script>
 

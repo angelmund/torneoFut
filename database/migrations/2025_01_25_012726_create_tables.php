@@ -19,8 +19,8 @@ return new class extends Migration {
             $table->id();
             $table->string('nombre', 100)->unique();
             $table->unsignedBigInteger('modalidad_id');
-            $table->date('fecha_inicio');
-            $table->date('fecha_fin');
+            $table->date('fecha_inicio')->nullable();
+            $table->date('fecha_fin')->nullable();
             $table->timestamps();
 
             // Definir la clave foránea correctamente

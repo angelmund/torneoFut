@@ -21,7 +21,7 @@
         <div class="p-2 bg-orange-700 border border-gray-200 rounded-lg shadow-md w-full h-48 hover:bg-slate-700">
             <span class="block h-12 w-auto text-white font-bold">#76</span>
             <h1 class="mt-10 text-xl font-medium text-gray-900 text-center">
-                <i class="fas fa-trophy text-yellow-400"></i> <a href="#" class="text-white">Torneos</a>
+                <i class="fas fa-trophy text-yellow-400"></i> <a href="{{route('TorneosIndex')}}" class="text-white">Torneos</a>
             </h1>
         </div>
         <div class="p-2 bg-orange-700 border border-gray-200 rounded-lg shadow-md w-full h-48 hover:bg-slate-700">
