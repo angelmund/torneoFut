@@ -7,38 +7,50 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        {{--  <!-- Toastr CSS -->
+        @toastr_css  --}}
 
+        @include('layouts.css')
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <!-- Stack for styles -->
+        @stack('styles')
 
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased bg-gray-800">
         <x-banner />
 
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-yellow-600">
-            @livewire('navigation-menu')
-    
-            <!-- Page Heading -->
+        <div class="flex justify-center mt-2 max-w-full">
+            @include('layouts.navigation-menu')
+        </div>
+        <!-- Page Heading -->
+        <div class="flex justify-center mt-2">
             @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+            <header class="bg-purple-800 shadow mt-3">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-7 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
+        @endif
+        </div>
+        
+        {{--  <div class="min-h-screen flex flex-col sm:justify-center items-center  sm:pt-0 bg-gray-800">  --}}
+            
+        
             <!-- Page Content -->
-            <main>
+            <main class="mt-3">
                 {{ $slot }}
             </main>
-        </div>
+       
 
-        @stack('modals')
-
+        {{--  @stack('modals')  --}}
+        @include('layouts.modals')
         @livewireScripts
+
+        @include('layouts.js')
+        <!-- Stack para scripts de js -->
+        @stack('scripts')
     </body>
 </html>

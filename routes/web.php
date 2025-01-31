@@ -15,3 +15,13 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/modalidades', [App\Http\Controllers\ModalidadController::class, 'index'])->name('ModalidadesIndex');
+    Route::get('/modalidades/crear', [App\Http\Controllers\ModalidadController::class, 'crear'])->name('MalidadesCrear');
+    Route::post('/modalidades/guardar', [App\Http\Controllers\ModalidadController::class, 'guardar'])->name('ModalidadesGuardar');
+    Route::get('/modalidades/edit/{id}', [App\Http\Controllers\ModalidadController::class, 'editar'])->name('ModalidadesEditar');
+    Route::put('/modalidades/actualizar/{id}', [App\Http\Controllers\ModalidadController::class, 'actualizar'])->name('ModalidadesActualizar');
+    Route::post('/modalidades/eliminar/{id}', [App\Http\Controllers\ModalidadController::class, 'eliminar'])->name('ModalidadesEliminar');
+});
