@@ -45,9 +45,9 @@ class Torneo extends Model
 		'fecha_fin'
 	];
 
-	public function modalidade()
+	public function modalidad()
 	{
-		return $this->belongsTo(Modalidade::class, 'modalidad_id');
+		return $this->belongsTo(Modalidad::class, 'modalidad_id');
 	}
 
 	public function jornadas()

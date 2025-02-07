@@ -50,4 +50,10 @@ class Equipo extends Model
 	{
 		return $this->hasMany(Posicione::class);
 	}
+
+	// Definir la relación con el modelo Jugador a través de la tabla pivote
+    public function jugadores()
+    {
+        return $this->belongsToMany(Jugador::class, 'jugador_equipo_torneo', 'equipo_id', 'jugador_id');
+    }
 }

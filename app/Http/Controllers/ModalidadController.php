@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Modalidad;
 use App\Models\Modalidade;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -11,7 +12,7 @@ class ModalidadController extends Controller
 {
     public function index()
     {
-        $modalidades = Modalidade::all();
+        $modalidades = Modalidad::all();
         return view('modalidades.index', compact('modalidades'));
     }
 
@@ -46,7 +47,7 @@ class ModalidadController extends Controller
 
         // Guardar modalidad
         try {
-            $modalidad = new Modalidade();
+            $modalidad = new Modalidad();
             $modalidad->nombre = $request->nombre;
             $modalidad->save();
 
@@ -67,7 +68,7 @@ class ModalidadController extends Controller
 
     public function editar($id)
     {
-        $modalidad = Modalidade::findOrFail($id);
+        $modalidad = Modalidad::findOrFail($id);
         return view('modalidades.edit', compact('modalidad'));
     }
 
@@ -94,7 +95,7 @@ class ModalidadController extends Controller
      
          // Guardar modalidad
          try {
-             $modalidad = Modalidade::findOrFail($id);
+             $modalidad = Modalidad::findOrFail($id);
              $modalidad->nombre = $request->nombre;
              $modalidad->save();
      
@@ -116,7 +117,7 @@ class ModalidadController extends Controller
     public function eliminar($id)
     {
         // Buscar la modalidad
-        $modalidad = Modalidade::findOrFail($id);
+        $modalidad = Modalidad::findOrFail($id);
 
         // Eliminar la modalidad
         try {

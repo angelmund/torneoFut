@@ -14,24 +14,35 @@ return new class extends Migration {
             $table->timestamps();
         });
 
+        //Categorias  preguntar con el profesor
+        Schema::create('categorias', function (Blueprint $table) {
+            $table->id();
+            $table->string('nombre', 50)->unique();
+            $table->timestamps();
+        });
+
         // Tabla de torneos
         Schema::create('torneos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 100)->unique();
+            $table->text('nombre', 100)->unique();
             $table->unsignedBigInteger('modalidad_id');
+            $table->unsignedBigInteger('categoria_id');
             $table->date('fecha_inicio')->nullable();
             $table->date('fecha_fin')->nullable();
             $table->timestamps();
 
-            // Definir la clave foránea correctamente
+            // Llave foránea a la tabla modalidades
             $table->foreign('modalidad_id')->references('id')->on('modalidades')->onDelete('cascade');
+
+            // Llave foránea a la tabla categorias
+            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
         });
 
         // Tabla de equipos
         Schema::create('equipos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 100)->unique();
-            $table->string('escudo', 100)->nullable();
+            $table->text('nombre');
+            $table->text('escudo')->nullable();
             $table->timestamps();
         });
 
@@ -40,7 +51,8 @@ return new class extends Migration {
             $table->id();
             $table->string('nombre', 100);
             $table->integer('edad')->nullable();
-            $table->integer('numero')->nullable();
+            $table->integer('numero_camiseta')->nullable();
+            $table->string('foto',100)->nullable();
             $table->timestamps();
         });
 

@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class Modalidade extends Model
+class Modalidad extends Model
 {
 	protected $table = 'modalidades';
 

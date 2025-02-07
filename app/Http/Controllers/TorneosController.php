@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Modalidad;
 use App\Models\Modalidade;
 use App\Models\Torneo;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ class TorneosController extends Controller
 
     public function crear()
     {
-        $modalidades = Modalidade::all();
+        $modalidades = Modalidad::all();
         return view('torneos.create', compact('modalidades'));
     }
 
@@ -77,7 +78,7 @@ class TorneosController extends Controller
     public function editar($id)
     {
         $torneo = Torneo::findOrFail($id);
-        $modalidades = Modalidade::all();
+        $modalidades = Modalidad::all();
         return view('torneos.edit', compact('torneo', 'modalidades'));
     }
 

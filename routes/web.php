@@ -34,3 +34,12 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/torneos/actualizar/{id}', [App\Http\Controllers\TorneosController::class, 'actualizar'])->name('TorneosActualizar');
     Route::post('/torneos/eliminar/{id}', [App\Http\Controllers\TorneosController::class, 'eliminar'])->name('TorneosEliminar');
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/equipos', [App\Http\Controllers\Equipo_Torneo_JugadorController::class, 'index'])->name('EquiposIndex');
+    Route::get('/equipos/crear', [App\Http\Controllers\Equipo_Torneo_JugadorController::class, 'crear'])->name('EquiposCrear');
+    Route::post('/equipos/guardar', [App\Http\Controllers\Equipo_Torneo_JugadorController::class, 'guardar'])->name('EquiposGuardar');
+    Route::get('/equipos/edit/{id}', [App\Http\Controllers\Equipo_Torneo_JugadorController::class, 'editar'])->name('EquiposEditar');
+    Route::post('/equipos/actualizar/{id}', [App\Http\Controllers\Equipo_Torneo_JugadorController::class, 'actualizar'])->name('EquiposActualizar');
+    Route::post('/equipos/eliminar/{id}', [App\Http\Controllers\Equipo_Torneo_JugadorController::class, 'eliminar'])->name('EquiposEliminar');
+});

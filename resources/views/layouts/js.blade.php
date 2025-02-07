@@ -8,12 +8,12 @@
             language: {
                 decimal: "",
                 emptyTable: "No hay datos disponibles en la tabla",
-                info: "Mostrando _START_ a _END_ de _TOTAL_ registrados",
-                infoEmpty: "Mostrando 0 a 0 de 0 registrados",
-                infoFiltered: "(filtrado de _MAX_ registrados totales)",
+                info: "", // Elimina la información de registros mostrados
+                infoEmpty: "",
+                infoFiltered: "",
                 infoPostFix: "",
                 thousands: ",",
-                lengthMenu: "Mostrar _MENU_ registrados",
+                lengthMenu: "", // Elimina el texto del menú de longitud
                 loadingRecords: "Cargando...",
                 processing: "Procesando...",
                 search: "Buscar:",
@@ -29,14 +29,13 @@
                     sortDescending: ": activar para ordenar la columna de manera descendente"
                 }
             },
-            paging: true,
-            lengthChange: true,
+            paging: false, // Desactiva la paginación
+            lengthChange: false, // Oculta la opción de cambiar la longitud
             searching: true,
             ordering: true,
-            info: true,
+            info: false, // Oculta la información de registros mostrados
             autoWidth: false,
-            pageLength: 10,
-            lengthMenu: [5, 10, 25, 50, 75, 100],
+            pageLength: -1, // Muestra todos los registros en una página
             columnDefs: [
                 { targets: 'no-sort', orderable: false }
             ]

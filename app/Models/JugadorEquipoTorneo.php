@@ -46,9 +46,9 @@ class JugadorEquipoTorneo extends Model
 		return $this->belongsTo(Equipo::class);
 	}
 
-	public function jugadore()
+	public function jugador()
 	{
-		return $this->belongsTo(Jugadore::class, 'jugador_id');
+		return $this->belongsTo(Jugador::class, 'jugador_id');
 	}
 
 	public function torneo()
